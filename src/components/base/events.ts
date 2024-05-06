@@ -33,7 +33,7 @@ export class EventEmitter implements IEvents {
             this._events.set(eventName, new Set<Subscriber>());
         }
         this._events.get(eventName)?.add(callback);
-    }
+     }
 
     /**
      * Снять обработчик с события
@@ -56,6 +56,7 @@ export class EventEmitter implements IEvents {
                 subscribers.forEach(callback => callback(data));
             }
         });
+        console.log(this._events)
     }
 
     /**

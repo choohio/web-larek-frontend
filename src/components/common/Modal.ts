@@ -7,6 +7,7 @@ interface IModalData {
 }
 
 export class Modal extends View<IModalData> {
+    
     protected _closeButton: HTMLButtonElement;
     protected _content: HTMLElement;
 

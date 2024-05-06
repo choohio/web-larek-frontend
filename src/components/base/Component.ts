@@ -30,7 +30,7 @@ export abstract class Component<T> {
         }
     }
 
-    // Установить изображение с алтернативным текстом
+    // Установить изображение с альтернативным текстом
     protected setImage(element: HTMLImageElement, src: string, alt?: string) {
         if (element) {
             element.src = src;
@@ -43,6 +43,7 @@ export abstract class Component<T> {
     // Вернуть корневой DOM-элемент
     render(data?: Partial<T>): HTMLElement {
         Object.assign(this as object, data ?? {});
+        console.log(data)
         return this.container;
     }
 }
