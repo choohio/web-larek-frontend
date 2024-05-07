@@ -71,9 +71,6 @@ export class AppData {
             this.order.items = this.basket.items;
             this.events.emit('order:ready', this.order);
         }
-     
-
-  
     }
 
     validateOrder() {
