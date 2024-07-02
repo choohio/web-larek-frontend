@@ -28,11 +28,13 @@ export class AppData {
         this.events.emit('basket:change');
     }
 
+    // изменение массива товаров каталога
     setItems(items: IProduct[]) {
         this.items = items;
         this.events.emit('items:change', this.items);
     }
 
+    // изменение открываемого в модальном окне товара
     setPreview(item: IProduct) {
         this.preview = item;
         this.events.emit('preview:change', this.preview);
@@ -42,6 +44,7 @@ export class AppData {
         return this.basket.items.includes(item.id);
     }
 
+    // изменение списка товаров корзины
     addToBasket(item: IProduct) {
         this.basket.items.push(item.id); 
         this.basket.total += item.price;
@@ -56,15 +59,17 @@ export class AppData {
 
     setPaymentMethod(method: PaymentMethod) {
         this.order.payment = method; 
-
     }
 
+    // данные форм оформления заказа валидны
     setOrderField(field: keyof OrderForm, value: string) {
         if (field === 'payment') {
             this.setPaymentMethod(value as PaymentMethod)
         } else {
             this.order[field] = value;
         }
+
+        console.log(this.order);
 
         if (this.order.payment && this.validateOrder()) {
             this.order.total = this.basket.total;

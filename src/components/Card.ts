@@ -1,7 +1,7 @@
-import {Component} from "./base/Component";
-import {CategoryType, IProduct} from "../types";
-import {ensureElement} from "../utils/utils";
-import { categoryMapping } from "../utils/constants";
+import { Component } from "./base/Component";
+import { IProduct } from "../types";
+import { ensureElement } from "../utils/utils";
+import { categories } from "../utils/constants";
 
 interface ICardActions {
     onClick: (event: MouseEvent) => void;
@@ -61,10 +61,13 @@ export class Card extends Component<IProduct> {
         return this._price.textContent || '';
     }
 
-    set category(value: CategoryType) {
+    set category(value: string){
         this.setText(this._category, value);
-        // this._category.classList.add(categoryMapping[value]);
-    }
+        if (this._category){
+          this._category.classList.remove(`card__category_other`);
+          this._category.classList.add(`card__category_${categories.get(value) ? categories.get(value) : 'other'}`);
+        }
+      }
 
     set image(value: string) {
         this.setImage(this._image, value, this.title)

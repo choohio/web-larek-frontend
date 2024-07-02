@@ -7,10 +7,10 @@ export const settings = {
 
 };
 
-export const categoryMapping: CategoryMapping = {
-    'другое': 'card__category_other',
-    'софт-скил': 'card__category_soft',
-    'дополнительное': 'card__category_additional',
-    'кнопка': 'card__category_button',
-    'хард-скил': 'card__category_hard',
-  };
+export const categories = new Map([
+  ['софт-скил', 'soft'],
+  ['другое', 'other'],
+  ['дополнительное', 'additional'],
+  ['кнопка', 'button'],
+  ['хард-скил', 'hard']
+]);
